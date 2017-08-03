@@ -1,9 +1,11 @@
-const fetch = require('node-fetch')
-const { JSDOM, } = require('jsdom')
-const Season = require('../models/Season')
-const inquirer = require('inquirer')
+import * as inquirer from 'inquirer'
+import { JSDOM } from 'jsdom'
+import fetch from 'node-fetch'
+import { URL } from 'url'
 
-const fetchSeasons = serieName => {
+import Season from '../models/Season'
+
+/* const fetchSeasons = serieName => {
   const url = `https://www.tv-subs.com/tv/${serieName}`
   return new Promise((resolve, reject) => {
     _searchSeason(url)
@@ -11,13 +13,13 @@ const fetchSeasons = serieName => {
       .then(listOfSeasons => resolve(listOfSeasons))
       .catch(err => reject(err))
   })
+} */
+
+export const searchSeason = async (url: URL): Promise<string> => {
+  return await fetch(url.href).then(res => res.text())
 }
 
-const _searchSeason = url => {
-  return fetch(url).then(res => res.text())
-}
-
-const _handleHTML = html => {
+/* const _handleHTML = html => {
   const dom = new JSDOM(html)
   const listOfElements = dom.window.document.querySelectorAll('.season-list li')
   const listOfSeasons = []
@@ -52,8 +54,4 @@ const seasonPrompt = listOfSeason => {
 
   return inquirer.prompt(question)
 }
-
-module.exports = {
-  fetchSeasons,
-  seasonPrompt,
-}
+ */
