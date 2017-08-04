@@ -1,6 +1,6 @@
 import { URL } from 'url'
-import Configuration from '../../config/config'
-import Season from '../../models/Season'
+import Configuration from '../../ts/config/config'
+import { Season } from '../../ts/models/index'
 
 describe('Season Class', () => {
   const name = 'Season 1'
