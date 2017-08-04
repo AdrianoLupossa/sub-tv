@@ -1,8 +1,8 @@
-import * as _ from 'lodash'
+/* import * as _ from 'lodash'
 
 import Subtitle from '../models/Subtitle'
 
-export default class SubtitleList {
+export class SubtitleList {
   private _listOfSubtitles: Subtitle[] = []
   private _listOfSubtitlesByLanguage: Dictionary<Subtitle[]> = []
 
@@ -37,3 +37,4 @@ export default class SubtitleList {
 }
 
 module.exports = SubtitleList
+ */

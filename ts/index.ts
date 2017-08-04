@@ -1,9 +1,9 @@
-#!/usr/bin/env node
+/* #!/usr/bin/env node
 
 import * as program from 'commander'
+import * as figlet from 'figlet'
 import * as inquirer from 'inquirer'
 import * as ora from 'ora'
-import * as figlet from 'figlet'
 
 const { fetchSeasons, seasonPrompt } = require('./service/Season')
 const { fetchEpisodes, episodePrompt } = require('./service/Episode')
@@ -41,9 +41,7 @@ const initialQuestion = () => {
 
 async function bootstrap() {
   const spinner = ora()
-  /* eslint-disable */
   console.log(figlet.textSync('Sub - TV'))
-  /* eslint-enable */
   inquirer.registerPrompt(
     'autocomplete',
     require('inquirer-autocomplete-prompt'),
@@ -80,9 +78,7 @@ async function bootstrap() {
     spinner.succeed(result)
   } catch (error) {
     spinner.fail('Sorry, It was not possible to download your subtitle')
-    /* eslint-disable */
     console.trace(error)
-    /* eslint-enable */
   }
 }
 
@@ -92,3 +88,4 @@ program.parse(process.argv)
 if (!process.argv.slice(1).length) {
   program.outputHelp()
 }
+ */
