@@ -1,7 +1,7 @@
 import { URL } from 'url'
 import Configuration from '../config/config'
 
-export default class Season {
+export class Season {
   private _link: string
 
   constructor(readonly name: string, link: string) {

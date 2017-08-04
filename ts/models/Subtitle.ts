@@ -1,7 +1,7 @@
 import { URL } from 'url'
 import Configuration from '../config/config'
 
-export default class Subtitle {
+export class Subtitle {
   private _link: URL
 
   constructor(
