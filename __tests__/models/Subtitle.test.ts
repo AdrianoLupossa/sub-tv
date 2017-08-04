@@ -1,5 +1,5 @@
 import { URL } from 'url'
-import Subtitle from '../../models/Subtitle'
+import { Subtitle } from '../../ts/models/index'
 
 describe('Subtitle Class', () => {
   const dataTest = {
