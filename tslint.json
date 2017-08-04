@@ -7,7 +7,10 @@
     "quotemark": ["single"],
     "variable-name": ["allow-trailing-underscore"],
     "arrow-parens": false,
-    "no-angle-bracket-type-assertion": false
+    "no-angle-bracket-type-assertion": false,
+    "only-arrow-functions": [
+      "allow-declarations"
+    ]
   },
-  "rulesDirectory": []
+  "rulesDirectory": ["ts/."]
 }

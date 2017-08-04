@@ -1,3 +1,7 @@
+# Folders
 node_modules/
+src/
+dist/
+playground/
 
-teste.js
+# Files
