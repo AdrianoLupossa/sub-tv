@@ -36,7 +36,7 @@ export const _getDOMFromUrl = (url: string): Promise<JSDOM> =>
 export const _mountSeasonFromLink = (element: HTMLLinkElement) => {
   const name = element.textContent
   const link = element.href
-  return new Season(<string>name, link)
+  return new Season(<string> name, link)
 }
 /*
 const seasonPrompt = listOfSeason => {
