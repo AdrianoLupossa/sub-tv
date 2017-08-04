@@ -57,23 +57,23 @@ describe('Season Services', async () => {
       const fakeData = [
         new Season(
           'Season 1',
-          'http://www.tv-subs.com/tv/breaking-bad/season-1/',
+          'https://www.tv-subs.com/tv/breaking-bad/season-1/',
         ),
         new Season(
           'Season 2',
-          'http://www.tv-subs.com/tv/breaking-bad/season-2/',
+          'https://www.tv-subs.com/tv/breaking-bad/season-2/',
         ),
         new Season(
           'Season 3',
-          'http://www.tv-subs.com/tv/breaking-bad/season-3/',
+          'https://www.tv-subs.com/tv/breaking-bad/season-3/',
         ),
         new Season(
           'Season 4',
-          'http://www.tv-subs.com/tv/breaking-bad/season-4/',
+          'https://www.tv-subs.com/tv/breaking-bad/season-4/',
         ),
         new Season(
           'Season 5',
-          'http://www.tv-subs.com/tv/breaking-bad/season-5/',
+          'https://www.tv-subs.com/tv/breaking-bad/season-5/',
         ),
       ]
       const callbackTest = (data: any) => {
