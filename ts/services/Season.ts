@@ -1,45 +1,44 @@
 import * as inquirer from 'inquirer'
 import { JSDOM } from 'jsdom'
-import fetch from 'node-fetch'
 import { URL } from 'url'
+import { Season, Serie } from '../models/index'
 
-import Season from '../models/Season'
+import { getArrayFromNodeList, getElementFromDOM } from '../helpers/utils/index'
 
-/* const fetchSeasons = serieName => {
-  const url = `https://www.tv-subs.com/tv/${serieName}`
+export const fetchSeasons = (serie: Serie) => {
   return new Promise((resolve, reject) => {
-    _searchSeason(url)
-      .then(_handleHTML)
-      .then(listOfSeasons => resolve(listOfSeasons))
-      .catch(err => reject(err))
+    _getDOMFromUrl(serie.link.href).then(dom => {
+      try {
+        const arrayOfLinks = getArrayFromNodeList(
+          getElementFromDOM(dom, '.season-list li a'),
+        )
+
+        const arrayOfSeasons = _filterOtherSeason(
+          arrayOfLinks.map((link: HTMLLinkElement) =>
+            _mountSeasonFromLink(link),
+          ),
+        )
+
+        resolve(arrayOfSeasons)
+      } catch (error) {
+        reject(error)
+      }
+    })
   })
-} */
-
-export const searchSeason = async (url: URL): Promise<string> => {
-  return await fetch(url.href).then(res => res.text())
 }
 
-/* const _handleHTML = html => {
-  const dom = new JSDOM(html)
-  const listOfElements = dom.window.document.querySelectorAll('.season-list li')
-  const listOfSeasons = []
-  let season = {}
+export const _filterOtherSeason = (seasons: Season[]) =>
+  seasons.filter(season => season.name.toUpperCase() !== 'OTHER')
 
-  listOfElements.forEach(li => {
-    season = _mountSeasonFromLi(li)
+export const _getDOMFromUrl = (url: string): Promise<JSDOM> =>
+  JSDOM.fromURL(url)
 
-    if (season.name.toLowerCase() !== 'other') listOfSeasons.push(season)
-  })
-
-  return listOfSeasons
+export const _mountSeasonFromLink = (element: HTMLLinkElement) => {
+  const name = element.textContent
+  const link = element.href
+  return new Season(<string>name, link)
 }
-
-const _mountSeasonFromLi = li => {
-  const name = li.textContent
-  const link = li.firstElementChild.href
-  return new Season(name, link)
-}
-
+/*
 const seasonPrompt = listOfSeason => {
   const question = {
     choices: [],
