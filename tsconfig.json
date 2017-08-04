@@ -6,7 +6,8 @@
         "module": "commonjs",            // specifiy module code generation
         "target": "es2017",      // specify ECMAScript target version,
         "noEmitOnError": true,
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "experimentalDecorators": true
     },
     "include": [
         "./ts/","./playground/"
