@@ -15,7 +15,8 @@
     "start": "node src/index.js",
     "lint": "eslint src/",
     "test": "jest src/",
-    "prepush": "npm-run-all lint test"
+    "prepush": "npm-run-all lint test",
+    "prepublish": "npm-run-all lint test"
   },
   "dependencies": {
     "commander": "^2.11.0",
